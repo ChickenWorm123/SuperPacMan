@@ -150,22 +150,26 @@ public class SuperPacMan_Maze {
                 if (grid[i][l] == d && grid[i+1][l+1] == w && grid[i-1][l-1] == w && grid[i-1][l+1] == w && grid[i+1][l-1] == w)
                 {
                     grid[i][l] = s;
-                    grid[i][c-l] = s;
+                    grid[i][c-l-1] = s;
                     if (grid[i+1][l] != w)
                     {
                         grid[i+1][l] = t;
+                        grid[i+1][c-l-1] = t;
                     }
                     if (grid[i-1][l] != w)
                     {
                         grid[i-1][l] = t;
+                        grid[i-1][c-l-1] = t;
                     }
                     if (grid[i][l+1] != w)
                     {
                         grid[i][l+1] = t;
+                        grid[i][c-l+1-1] = t;
                     }
                     if (grid[i][l-1] != w)
                     {
                         grid[i][l-1] = t;
+                        grid[i][c-l-1-1] = t;
                     }
                     return;
                 }
@@ -185,7 +189,7 @@ public class SuperPacMan_Maze {
         }
         while (!check2Key())
         {
-            int row = (int)(Math.random()*13)+16;
+            int row = (int)(Math.random()*28)+1;
             int col = (int)(Math.random()*15)+16;
             if (grid[row][col] == d)
             {
