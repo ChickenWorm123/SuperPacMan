@@ -1,7 +1,15 @@
 public class SuperPacMan_Maze {
     private int[][] grid;
+    private int[][] L;
+    private int[][] T;
+    private int[][] I;
+    private int[][] P;
     public void maze()
     {
+        L = new int[][] {{1,1,0},{0,0,0},{1,1,1}};
+        I = new int[][] {{1,1,1,1},{0,0,0,0},{1,1,1,1}};
+        T = new int[][] {{0,0,0},{1,0,1},{1,0,1}};
+        P = new int[][] {{1,0,1},{0,0,0},{1,0,1}};
         grid = new int[28][31];
         for (int i = 0; i < 28; i++)
         {
@@ -12,6 +20,7 @@ public class SuperPacMan_Maze {
                     if (i == 14)
                     {
                         grid[i][l] = 1;
+
                     }
                     else
                         grid[i][l] = 0;
@@ -41,7 +50,17 @@ public class SuperPacMan_Maze {
             }
         }
     }
+    public void walls()
+    {
+        for(int i  = 2; i < 5; i++)
+        {
 
+            for (int l = 2; l < 5; l++) {
+                    grid[i][l] = L[i-2][l-2];
+
+            }
+        }
+    }
     public String toString() {
         String s = "";
         for (int[] r : grid) {

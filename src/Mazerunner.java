@@ -3,6 +3,7 @@ public class Mazerunner {
         SuperPacMan_Maze x = new SuperPacMan_Maze();
         x.maze();
         x.box();
+        x.walls();
         System.out.println(x);
     }
 }
