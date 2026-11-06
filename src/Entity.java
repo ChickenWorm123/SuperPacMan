@@ -30,7 +30,7 @@ public class Entity extends Canvas {
     }
 
     public boolean intersects(Entity other){
-
+            return true;
     }
 
 
