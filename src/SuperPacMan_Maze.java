@@ -23,7 +23,10 @@ public class SuperPacMan_Maze {
         grid = new char[r][c];
         generateMaze();
     }
-
+    public char[][] getGrid()
+    {
+        return grid;
+    }
     private void generateMaze() {
         for (int i = 0; i < r; i++) {
             Arrays.fill(grid[i], w);
