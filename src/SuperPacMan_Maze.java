@@ -9,10 +9,12 @@ public class SuperPacMan_Maze {
     private static final char w = '0';
     private static final char d = '.';
     private static final char p = 'o';
-    private static final char s = 'O';
+    private static final char s = 'S';
     private static final char e = 's';
     private static final char pm = 'p';
     private static final char g = 'g';
+    private static final char t = 'w';
+    private static final char k = 'k';
 
     private char[][] grid;
     private Random rand = new Random();
@@ -46,6 +48,7 @@ public class SuperPacMan_Maze {
 
 
         placeEntities();
+        placeKeys();
     }
 
     private void carve(int rows, int cols, int maxCol) {
@@ -136,6 +139,68 @@ public class SuperPacMan_Maze {
 
         // Pac-Man starting position near bottom center
         grid[(r / 2) + 5][c / 2] = pm;
+        grid[(r / 2) + 5][c / 2 + 1] = d;
+        grid[(r / 2) + 6][c / 2] = d;
+        grid[(r / 2) + 4][c / 2] = d;
+        grid[(r / 2) + 5][c / 2 - 1] = d;
+        for (int i = 16; i < r-1; i++)
+        {
+            for (int l = 2; l < c/2; l++)
+            {
+                if (grid[i][l] == d && grid[i+1][l+1] == w && grid[i-1][l-1] == w && grid[i-1][l+1] == w && grid[i+1][l-1] == w)
+                {
+                    grid[i][l] = s;
+                    grid[i][c-l] = s;
+                    if (grid[i+1][l] != w)
+                    {
+                        grid[i+1][l] = t;
+                    }
+                    if (grid[i-1][l] != w)
+                    {
+                        grid[i-1][l] = t;
+                    }
+                    if (grid[i][l+1] != w)
+                    {
+                        grid[i][l+1] = t;
+                    }
+                    if (grid[i][l-1] != w)
+                    {
+                        grid[i][l-1] = t;
+                    }
+                    return;
+                }
+            }
+        }
+    }
+    private void placeKeys()
+    {
+
+    }
+    private boolean checkKey()
+    {
+        boolean check = false;
+        for (int i = 0; i < r/2; i++)
+        {
+            for (int l = 0; l < c/2; l++)
+            {
+                if (grid[i][l] == k)
+                    check = true;
+            }
+        }
+        return check;
+    }
+    private boolean check2Key()
+    {
+        boolean check = false;
+        for (int i = 0; i < r/2; i++)
+        {
+            for (int l = c/2 + 1; l < c-1;l++)
+            {
+                if (grid[i][l] == k)
+                    check = true;
+            }
+        }
+        return check;
     }
 
     public String toString() {
