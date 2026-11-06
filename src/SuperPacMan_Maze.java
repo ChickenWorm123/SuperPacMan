@@ -174,12 +174,37 @@ public class SuperPacMan_Maze {
     }
     private void placeKeys()
     {
-
+        while (!checkKey())
+        {
+            int row = (int)(Math.random()*28)+1;
+            int col = (int)(Math.random()*15)+1;
+            if (grid[row][col] == d)
+            {
+                grid[row][col] = k;
+            }
+        }
+        while (!check2Key())
+        {
+            int row = (int)(Math.random()*13)+16;
+            int col = (int)(Math.random()*15)+16;
+            if (grid[row][col] == d)
+            {
+                grid[row][col] = k;
+            }
+        }
+    }
+    public int getR()
+    {
+        return r;
+    }
+    public int getC()
+    {
+        return c;
     }
     private boolean checkKey()
     {
         boolean check = false;
-        for (int i = 0; i < r/2; i++)
+        for (int i = 0; i < r; i++)
         {
             for (int l = 0; l < c/2; l++)
             {
@@ -192,7 +217,7 @@ public class SuperPacMan_Maze {
     private boolean check2Key()
     {
         boolean check = false;
-        for (int i = 0; i < r/2; i++)
+        for (int i = 0; i < r; i++)
         {
             for (int l = c/2 + 1; l < c-1;l++)
             {
