@@ -19,6 +19,9 @@ public class AnimationRunner extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
+
+
+
 	public static void main( String args[] )
 	{
 		AnimationRunner run = new AnimationRunner();
