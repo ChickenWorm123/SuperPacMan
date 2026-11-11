@@ -7,8 +7,7 @@ import java.awt.*;
 public class Animation extends JPanel implements Runnable
 {
     SuperPacMan_Maze structure= new SuperPacMan_Maze();
-	int x = 0;
-	int y = 0;
+
 	public Animation()
 	{
 		setBackground(Color.WHITE);
@@ -20,19 +19,36 @@ public class Animation extends JPanel implements Runnable
 	{
 		window.setColor(Color.WHITE);
 
-		window.fillRect(0,0,2600,1800);
+		window.fillRect(0,0,1500,1800);
         window.setColor(Color.BLUE);
 
-        for(int i=0; i<structure.getR(); i+=48){
-            for(int x=0; x<structure.getC(); x+=48){
-                if(grid[i][x]==0){
-                    window.fillRect(i, 0,48,48);
+        for(int i=0; i<structure.getR(); i+=1){
+            for(int y=0; y<structure.getC(); y+=1){
+                if(structure.getGrid()[i][y]=='0'){
+                    window.fillRect((y)*48, (i)*48,48,48);
                 }
+                if(structure.getGrid()[i][y]=='w'){
+                    window.setColor(Color.PINK);
+                    window.fillRect((y)*48,(i)*48,48,48);
+                }
+                if(structure.getGrid()[i][y]=='g'){
+                    window.setColor(Color.ORANGE);
+                    Graphics2D g2 = (Graphics2D) window;
+                    Image img1 = Toolkit.getDefaultToolkit().getImage("OrangeGhost.png"); /*the image cannot be in the SRC folder*/
+                    g2.drawImage(img1, (y)*48 , (i)*48 , 40 , 60 , this);
+                }
+                if(structure.getGrid()[i][y]=='.'){
+                    window.setColor(Color.YELLOW);
+                    window.fillOval(y*48+7,i*48+7,25,25);
+                }
+                window.setColor(Color.BLUE);
+
 
             }
 
 
         }
+
 
 
 
@@ -47,34 +63,30 @@ public class Animation extends JPanel implements Runnable
         //int[] y2points={425,435,415};
         //window.setColor(Color.WHITE);
         //window.fillPolygon(x2points,y2points,3);
-        window.setColor(Color.ORANGE);
-        Graphics2D g2 = (Graphics2D) window;
-        Image img1 = Toolkit.getDefaultToolkit().getImage("OrangeGhost.png"); /*the image cannot be in the SRC folder*/
-        g2.drawImage(img1, 0 , 0 , 40 , 60 , this);
 
+/*
         window.setColor(Color.RED);
         Graphics2D h2 = (Graphics2D) window;
         Image img2 = Toolkit.getDefaultToolkit().getImage("RedGhost.png"); /*the image cannot be in the SRC folder*/
-        g2.drawImage(img2, 50 , 0 , 40 , 60 , this);
+        /*h2.drawImage(img2, 50 , 0 , 40 , 60 , this);
 
         window.setColor(Color.PINK);
         Graphics2D j2 = (Graphics2D) window;
         Image img3 = Toolkit.getDefaultToolkit().getImage("PinkGhost.png"); /*the image cannot be in the SRC folder*/
-        g2.drawImage(img3, 100, 0 , 40 , 60 , this);
+        /*j2.drawImage(img3, 100, 0 , 40 , 60 , this);
 
         window.setColor(Color.BLUE);
         Graphics2D k2 = (Graphics2D) window;
         Image img4 = Toolkit.getDefaultToolkit().getImage("BlueGhost.png"); /*the image cannot be in the SRC folder*/
-        g2.drawImage(img4, 150 , 0 , 40 , 60 , this);
-
+        //k2.drawImage(img4, 150 , 0 , 40 , 60 , this);
 
 		//x = x + 10;
 		//y = y + 10;
 
 		//if( x > 2600)
-			x = 0;
+			//x = 0;
 		//if( y > 800)
-			y = 0;
+			//y = 0;
 
 
 
@@ -88,16 +100,8 @@ public class Animation extends JPanel implements Runnable
         public void paintComponent( Graphics window )
         {
 
-            //this allows us to put a png,jpg, or gif
-            Graphics2D g2 = (Graphics2D) window;
-            Image img1 = Toolkit.getDefaultToolkit().getImage("OrangeGhost.png"); /*the image cannot be in the SRC folder*/
-            g2.drawImage(img1, 0 , 0 , 800 , 600 , this);
 
-            Image img2 = Toolkit.getDefaultToolkit().getImage("bob.png"); /*the image cannot be in the SRC folder*/
-            g2.drawImage(img2, 350, 50, 100 , 100 , this);
 
-            Image img3 = Toolkit.getDefaultToolkit().getImage("fish.gif"); /*the image cannot be in the SRC folder*/
-            g2.drawImage(img3, 400, 300, 100 , 100 , this);
 
 
         }
