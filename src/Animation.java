@@ -21,6 +21,19 @@ public class Animation extends JPanel implements Runnable
 		window.setColor(Color.WHITE);
 
 		window.fillRect(0,0,2600,1800);
+        window.setColor(Color.BLUE);
+
+        for(int i=0; i<structure.getR(); i+=48){
+            for(int x=0; x<structure.getC(); x+=48){
+                if(grid[i][x]==0){
+                    window.fillRect(i, 0,48,48);
+                }
+
+            }
+
+
+        }
+
 
         for(int i=0; i<structure.)
         window.fillRect(, 48,89,48)
