@@ -21,42 +21,66 @@ public class Animation extends JPanel implements Runnable
 
 
 
-        window.setColor(Color.yellow);
-
-        window.fillOval(400,400,50,50);
-        int[] x1points={425,475,475};
-        int[] y1points={425,455,395};
-        window.setColor(Color.WHITE);
-        window.fillPolygon(x1points,y1points,3);
-
-        window.setColor(Color.yellow);
-
-        window.fillOval(300,400,50,50);
-        int[] x2points={325,375,375};
-        int[] y2points={425,435,415};
-        window.setColor(Color.WHITE);
-        window.fillPolygon(x2points,y2points,3);
 
 
-		x = x + 10;
+        //window.setColor(Color.yellow);
+
+        //window.fillOval(300,400,50,50);
+        //int[] x2points={325,375,375};
+        //int[] y2points={425,435,415};
+        //window.setColor(Color.WHITE);
+        //window.fillPolygon(x2points,y2points,3);
+
+
+		//x = x + 10;
 		//y = y + 10;
 
-		if( x > 2600)
+		//if( x > 2600)
 			x = 0;
 		//if( y > 800)
 			y = 0;
 
-		window.fillRect(x, y, 20, 20);
+		//window.fillRect(x, y, 20, 20);
 
-        window.setColor(Color.YELLOW);
-        window.fillOval(x,400,50,50);
-        int[] xpoints={x+25,x+75,x+75};
-        int[] ypoints={425,475,375};
-        window.setColor(Color.WHITE);
-        window.fillPolygon(xpoints,ypoints,3);
+        //window.setColor(Color.YELLOW);
+        //window.fillOval(x,400,50,50);
+        //int[] xpoints={x+25,x+75,x+75};
+        //int[] ypoints={425,475,375};
+        //window.setColor(Color.WHITE);
+        //window.fillPolygon(xpoints,ypoints,3);
 
 
+        for(int v=0; v<=2600; v+=7){
+            window.setColor(Color.WHITE);
+            
+            window.fillOval(v-7,400,50,50);
+            if(v==2600){
+                v=0;
+            }
 
+
+            if(v%2==0){
+
+                window.setColor(Color.YELLOW);
+                window.fillOval(v,400,50,50);
+                int[] xpoints={v+25,v+75,v+75};
+                int[] ypoints={425,475,375};
+                window.setColor(Color.WHITE);
+                window.fillPolygon(xpoints,ypoints,3);
+
+            }
+            if(v%2==1){
+                window.setColor(Color.GREEN);
+
+                window.fillOval(v,400,50,50);
+                int[] x1points={v+25,v+75,v+75};
+                int[] y1points={425,455,395};
+                window.setColor(Color.WHITE);
+                window.fillPolygon(x1points,y1points,3);
+
+            }
+
+        }
 
 
 
