@@ -113,7 +113,7 @@ public class SuperPacMan_Maze {
 
     private void addBox(int midR, int midC) {
         for (int i = midR - 1; i <= midR + 1; i++) {
-            for (int l = midC - 2; l <= midC + 2; l++) {
+            for (int l = midC - 3; l <= midC + 3; l++) {
                 grid[i][l] = w;
             }
         }

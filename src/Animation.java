@@ -35,8 +35,6 @@ public class Animation extends JPanel implements Runnable
         }
 
 
-        for(int i=0; i<structure.)
-        window.fillRect(, 48,89,48)
 
 
 
